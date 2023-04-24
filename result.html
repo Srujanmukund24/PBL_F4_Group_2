@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Results</title>
+</head>
+<body>
+    <h1>Resume Results</h1>
+    <p>Name: {{ name }}</p>
+    <p>Phone Number: {{ number }}</p>
+    <p>Links:</p>
+    <ul>
+    {% for key, urls in links.items() %}
+        <li>{{ key }}:</li>
+        <ul>
+        {% for url in urls %}
+            <li>{{ url }}</li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+    </ul>
+    <p>Skills:</p>
+    <ul>
+    {% for skill in skills %}
+        <li>{{ skill }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
