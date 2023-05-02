@@ -2,9 +2,41 @@
 <html>
 <head>
     <title>Resume Results</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #00ffcc, #ff99cc); /* Add gradient background */
+        }
+
+        h1 {
+            text-shadow: 2px 2px 4px #000000; /* Add shadow to heading */
+            color: #ffffff; /* Set text color to white */
+            font-size: 28px; /* Adjust font size */
+        }
+
+        p, li {
+            color: #000000; /* Set text color to black */
+            font-size: 16px; /* Adjust font size */
+        }
+
+        ul {
+            list-style-type: none; /* Remove bullet points */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        li {
+            margin-bottom: 8px; /* Add spacing between list items */
+        }
+
+        /* Add neon effect */
+        .neon {
+            color: #ffffff;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 40px #ff00cc, 0 0 70px #ff00cc, 0 0 80px #ff00cc, 0 0 100px #ff00cc, 0 0 150px #ff00cc;
+        }
+    </style>
 </head>
 <body>
-    <h1>Resume Results</h1>
+    <h1 class="neon">Resume Results</h1>
     <p>Name: {{ name }}</p>
     <p>Phone Number: {{ number }}</p>
     <p>Links:</p>
