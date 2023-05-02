@@ -1,0 +1,100 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": [
+          "Hi",
+          "Hey",
+          "How are you",
+          "Is anyone there?",
+          "Hello",
+          "Good day"
+        ],
+        "responses": [
+          "Welcome to our company! How can I assist you today?",
+          "Hello, thank you for reaching out. How may I help you?",
+          "Hi there! How can I be of service to you?",
+          "Greetings! How may I assist you?"
+        ]
+      },
+      {
+        "tag": "company_overview",
+        "patterns": [
+          "Tell me about your company",
+          "What does your company do?",
+          "Can you give me an overview of your company?",
+          "What services does your company provide?"
+        ],
+        "responses": [
+          "Our company is a leading provider of innovative solutions in [industry/field]. We specialize in [specific services/products]. Our goal is to deliver high-quality solutions that meet the needs of our clients and contribute to their success.",
+          "At our company, we are dedicated to [industry/field] and offer a wide range of services to our clients. We strive to provide excellent solutions that drive growth and deliver tangible results.",
+          "We are a dynamic company focused on [industry/field]. Our team excels in delivering cutting-edge solutions and services to help our clients achieve their goals and stay ahead in the market."
+        ]
+      },
+      {
+        "tag": "company_values",
+        "patterns": [
+          "What are your company values?",
+          "Tell me about the values of your company",
+          "What principles does your company adhere to?"
+        ],
+        "responses": [
+          "At our company, we value integrity, innovation, and customer satisfaction. These principles guide our actions and decisions, ensuring that we operate ethically, drive creativity, and prioritize the needs of our clients.",
+          "Our company is built on a foundation of transparency, collaboration, and continuous improvement. We believe in fostering a positive work environment, embracing diversity, and delivering exceptional value to our clients.",
+          "The core values of our company include professionalism, teamwork, and a commitment to excellence. We strive to maintain the highest standards in everything we do and foster a culture of trust, respect, and continuous learning."
+        ]
+      },
+      {
+        "tag": "company_team",
+        "patterns": [
+          "Who are the people behind your company?",
+          "Tell me about your team",
+          "Who makes up your company?"
+        ],
+        "responses": [
+          "Our company is powered by a team of highly skilled professionals who are experts in their respective fields. From talented engineers to creative designers and dedicated support staff, our team is committed to delivering exceptional solutions and services.",
+          "We have a diverse team of individuals who bring unique perspectives and expertise to our company. Our team consists of experienced professionals with a passion for [industry/field] and a drive to exceed client expectations.",
+          "At our company, we have assembled a team of top talents who share a common goal of delivering excellence. Our team members have a wealth of experience and knowledge, allowing us to tackle complex challenges and provide innovative solutions."
+        ]
+      },
+      {
+        "tag": "company_contact",
+        "patterns": [
+          "How can I contact your company?",
+          "What are your contact details?",
+          "Can you provide me with your company's contact information?"
+        ],
+        "responses": [
+          "You can reach us by phone at [phone number] or via email at [email address]. Alternatively, you can visit our website at [website URL] for more information and to get in touch with us.",
+          "For any inquiries ,Yyu can contact our company by calling us at [phone number] or sending us an email at [email address]. We are also available on our website at [website URL], where you can find more information about our services and use our contact form to reach out to us. We look forward to hearing from you!"
+        ]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": ["Bye", "See you later", "Goodbye"],
+        "responses": [
+        "Thank you for your interest in our company. Have a great day!",
+        "Goodbye! Feel free to reach out to us again in the future.",
+        "Take care and have a wonderful day!"
+        ]
+      },
+      {
+        "tag": "thanks",
+        "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+        "responses": ["You're welcome! If you have any more questions, feel free to ask.", "You're welcome! We're here to assist you.", "Glad I could help! If you need further assistance, don't hesitate to ask."]
+      },
+      {
+        "tag": "funny",
+        "patterns": [
+        "Tell me a joke!",
+        "Tell me something funny!",
+        "Do you know a joke?"
+        ],
+        "responses": [
+        "Sure, here's a joke for you: Why don't scientists trust atoms? Because they make up everything!",
+        "I've got a joke for you: Why did the computer go to the doctor? Because it had a virus!",
+        "Here's a lighthearted one: Why did the scarecrow win an award? Because he was outstanding in his field!"
+        ]
+      }
+        ]
+}
