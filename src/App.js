@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './pages/Home'; 
+import UserLogin from './pages/UserLogin';
+import UserRegister from './pages/UserRegister';
+import CompanyLogin from './pages/CompanyLogin';
+import CompanyRegister from './pages/CompanyRegister';
+import CompanyHome from './pages/CompanyHome';
+import UserHome from './pages/UserHome'
+import { auth } from "./firebase";
+import {BrowserRouter as Router ,Routes,Route} from "react-router-dom";
+import {useEffect, useState }from 'react';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Router>
+      <Routes>
+      <Route exact path="/" element={<Home/>}/> 
+      <Route exact path="/userlogin" element={<UserLogin/>}/>
+        <Route exact path="/userregister" element={<UserRegister/>}/>        
+        <Route exact path="/companylogin" element={<CompanyLogin/>}/>
+        <Route exact path="/companyregister" element={<CompanyRegister/>}/>   
+        <Route exact path="/userhome" element={<UserHome />}/>
+        <Route exact path="/companyhome" element={<CompanyHome  />}/> 
+      </Routes>
+    </Router>
+
+
+
+
     </div>
   );
 }
