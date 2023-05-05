@@ -6,6 +6,7 @@ import CompanyLogin from './pages/CompanyLogin';
 import CompanyRegister from './pages/CompanyRegister';
 import CompanyHome from './pages/CompanyHome';
 import UserHome from './pages/UserHome'
+import About from './pages/About'
 import { auth } from "./firebase";
 import {BrowserRouter as Router ,Routes,Route} from "react-router-dom";
 import {useEffect, useState }from 'react';
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/companyregister" element={<CompanyRegister/>}/>   
         <Route exact path="/userhome" element={<UserHome />}/>
         <Route exact path="/companyhome" element={<CompanyHome  />}/> 
+        <Route exact path="/about" element={<About />}/> 
       </Routes>
     </Router>
 
