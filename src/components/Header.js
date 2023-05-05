@@ -15,8 +15,8 @@ export default function Header() {
                         <li><Link to='/'>HOME</Link></li>
                         <li><Link to='/about'>AboutUs</Link></li>
                         <li><Link to='/contact'>ContactUs</Link></li>
-                        <li><Link to=''>Blog</Link></li>
-                        <li><Link to=''>Apply</Link></li>
+                        <li><Link to=''>Company-section</Link></li>
+                        <li><Link to=''>Employee-Section</Link></li>
 
                         {/* <form class="form-inline my-2 my-lg-0"> */}
                         <li><Link to="/login"><button class="btn btn-outline-success my-2 my-sm" type="submit">Register | Sign In</button></Link></li>
