@@ -20,8 +20,9 @@ import Graph from './components/Graph';
 
 
 
-
 function App() {
+
+   
   return (
     // <Login/>
 
@@ -55,7 +56,9 @@ function App() {
         
         <Route  path="/">
           <Header/>
-          <Middle/>
+  
+            <Middle/>
+          
           <Feachers/> 
           <Contact/>
           <Reviews/>

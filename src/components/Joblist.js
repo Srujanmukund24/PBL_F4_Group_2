@@ -1,4 +1,5 @@
 import React from 'react'
+import './joblist.css'
 
 export default function Joblist() {
   return (
@@ -29,7 +30,7 @@ export default function Joblist() {
                         <td>CEO</td>
                         <td>abc@gmail.com</td>
                         <td>5 yrs</td>
-                        <td><button class='logo'><i class="fa-solid fa-eye"></i></button>
+                        <td><button class='logo'><i class="fab fa-solid fa-eye"></i></button>
                             <button class='logo'><i class="fa-sharp fa-solid fa-trash"></i></button>
                         </td>
                     </tr>
