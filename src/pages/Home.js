@@ -15,7 +15,7 @@ const Home = () => {
       <ButtonSec/>
       <Features/>
       <Contact/>
-      {/* <Review/> */}
+      <Review/>
       <Footer/>
 
 

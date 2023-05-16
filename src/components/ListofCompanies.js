@@ -21,7 +21,6 @@ const ListofCompanies = () => {
   return (
     <>
                 <h1 class="text-center mt-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1>
- {companies.map((company, index) => (
 <div class="container-xxl py-5">
             <div class="container">
                 <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
@@ -32,6 +31,7 @@ const ListofCompanies = () => {
                             </a>
                         </li>
                     </ul>
+                      {companies.map((company, index) => (
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
                             <div class="job-item p-4 mb-4" key={index}>
@@ -56,13 +56,14 @@ const ListofCompanies = () => {
                             </div>
                             
                            
-                            <a class="btn btn-dark py-3 px-5" href="">Browse More Jobs</a>
                         </div>
                     </div>
+                     ))}
+                     <a class="btn btn-dark py-3 px-5" href="">Browse More Jobs</a>
                 </div>
             </div>
         </div>
-        ))}
+       
     </>
   )
 }

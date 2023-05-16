@@ -1,0 +1,135 @@
+.hed {
+    margin-top: 0;
+  }
+  
+  .frmbdy {
+    /* background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.5) 50%
+      ),
+      url(Bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover; */
+    height: 180vh;
+  }
+  
+  .all {
+    width: 50%;
+    margin-left: 25%;
+    font-family: Arial, sans-serif;
+    font-size: 2.3vh;
+    line-height: 3vh;
+    color: #f7f4f4;
+    background-color: #f5f5f555;
+    padding: 2.7vh;
+    opacity: 0.9;
+    border-radius: 15px;
+  }
+  
+  .frm {
+    background-color: #fff;
+    padding: 2.7vh;
+    border: 0.16vh solid #ccc;
+    border-radius: 0.7vh;
+  }
+  
+  .frmlb {
+    display: block;
+    margin-bottom: 0.7vh;
+  }
+  
+  .txtar {
+    display: block;
+    width: 100%;
+    padding: 1.34vh;
+    border: 0.16vh solid #ccc;
+    border-radius: 0.7vh;
+    margin-bottom: 1.34vh;
+    box-sizing: border-box;
+  }
+  
+  .txtar {
+    height: 13.4vh;
+  }
+  
+  .sbmt {
+    display: inline-block;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 1.34vh 2.7vh;
+    border: none;
+    border-radius: 0.7vh;
+    font-size: 2.18vh;
+    cursor: pointer;
+  }
+  
+  .sbmt:hover {
+    background-color: #3e8e41;
+  }
+  
+  .hed {
+    margin-top: 0;
+  }
+  
+  .pr {
+    margin-bottom: 1.34vh;
+  }
+  
+  .scroll-box {
+    height: 26.61vh;
+    overflow-y: scroll;
+    border: 0.16vh solid #ccc;
+    border-radius: 0.7vh;
+    padding: 1.34vh;
+  }
+  
+  .frmlb {
+    display: block;
+    margin-bottom: 0.7vh;
+  }
+  
+  .chck {
+    margin-right: 0.7vh;
+  }
+  
+  .txtar {
+    display: block;
+    width: 100%;
+    padding: 1.34vh;
+    border: 0.16vh solid #ccc;
+    border-radius: 0.7vh;
+    margin-top: 1.34vh;
+    box-sizing: border-box;
+  }
+  
+  /* Main container */
+  .all {
+    max-width: 106.5vh;
+    margin: 0 auto;
+    padding: 2.7vh;
+  }
+  
+  /* Form styles */
+  .frm {
+    display: flex;
+    flex-direction: column;
+    gap: 2.7vh;
+  }
+  
+  .frmlb {
+    font-weight: bold;
+    margin-bottom: 1.34vh;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    padding: 1.34vh;
+    border-radius: 0.7vh;
+    border: none;
+    box-shadow: 0 0 0.7vh rgba(38, 38, 38, 0.5);
+  }
+  

@@ -24,7 +24,7 @@ const UserHome = () => {
     <>
        
 
-      <div className="header">
+      <div className="hear">
       <nav class="navbar">
             <img src={logo} width="120" alt="Bootstrappin'"></img>
             
@@ -43,7 +43,7 @@ const UserHome = () => {
         </nav>
 
         <h1>
-        Welcome  {greet} , this is Company Information Page !!!.
+        Welcome  {greet} , this is User Information Page !!!.
 
 
         <button onClick={handlesignout}  className="btn btn-dark">

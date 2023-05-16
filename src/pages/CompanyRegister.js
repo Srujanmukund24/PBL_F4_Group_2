@@ -29,6 +29,7 @@ const CompanyRegister = () => {
           displayName: values.username,
         });
         console.log("user", user);
+        
         navigate("/companyhome", {
           state: {
             key: user.displayName,
