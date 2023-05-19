@@ -10,6 +10,9 @@ import About from './pages/About'
 import { auth } from "./firebase";
 import {BrowserRouter as Router ,Routes,Route} from "react-router-dom";
 import {useEffect, useState }from 'react';
+import ListofCompanies from './components/ListofCompanies';
+import AfterApply from './pages/AfterApply';
+import EmployeelList from './pages/EmployeelList';
 
 function App() {
   return (
@@ -24,7 +27,11 @@ function App() {
         <Route exact path="/companyregister" element={<CompanyRegister/>}/>   
         <Route exact path="/userhome" element={<UserHome />}/>
         <Route exact path="/companyhome" element={<CompanyHome  />}/> 
-        <Route exact path="/about" element={<About />}/> 
+        <Route exact path="/companyhome/listofemployees" element={< EmployeelList />}/> 
+        <Route exact path="/about" element={<About />}/>
+        <Route  exact path="/userhome/listofcompanies" element={<ListofCompanies/>}/>
+        <Route  exact path="/userhome/listofcompanies/apply" element={<AfterApply/>}/>
+        
       </Routes>
     </Router>
 

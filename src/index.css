@@ -144,7 +144,7 @@ nav img{
 }
 .text-box p{
   margin: 10px 0 40px;
-  font-size: 14px;
+  font-size: 17px;
   color: azure;
 }
 
@@ -222,8 +222,8 @@ h1{
 
 p{
   color: rgb(13, 13, 13);
-  font-size: 14px;
-  font-weight:300;
+  font-size: 17px;
+  font-weight:500;
   line-height: 22px;
   padding: 10px;
 }
