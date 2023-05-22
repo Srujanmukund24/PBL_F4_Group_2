@@ -76,7 +76,7 @@ const CompanyHome = () => {
 
          try {
            const docRef = await addDoc(collection(db, "company"), {
-             userId:auth?.currentUser?.uid,
+             userid:auth?.currentUser?.uid,
              name: values.name,
              vacancy: values.vacancy,
              descp: values.description,
@@ -99,7 +99,7 @@ const CompanyHome = () => {
         const checkUserIdExists = async () => {
      // Create a query to search for documents with the given userId
      console.log("auth inside useeffect: ", auth)
-     const q = query(collection(db, 'company'), where('userId', '==', auth?.currentUser?.uid));
+     const q = query(collection(db, 'company'), where('userid', '==', auth?.currentUser?.uid));
     
      try {
        // Execute the query 

@@ -122,7 +122,7 @@ const Companylogin = () => {
           <div class="text-center text-lg-start mt-4 pt-2">
             <button type="submit"  onClick={handleSubmission} class="btn btn-primary btn-lg"
               >Login</button>
-            <p class=" text-white fw-bold mt-3 pt-1 mb-0 ">Don't have an account? <Link to="/userregister"
+            <p class=" text-white fw-bold mt-3 pt-1 mb-0 ">Don't have an account? <Link to="/companyregister"
                 class="link-danger ">Register Your Company.</Link></p>
           </div>
 

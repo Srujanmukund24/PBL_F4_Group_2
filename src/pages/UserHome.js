@@ -7,18 +7,35 @@ import logo from '../Media/logo.png'
 import rushi from '../Media/rushi.JPG'
 import './style/userhome.css'
 import { collection, addDoc,query, where, getDocs } from "firebase/firestore"; 
-import { ref, uploadBytes } from 'firebase/storage';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import axios from 'axios';
 
 var greet;
 const UserHome = () => {
     const navigate = useNavigate();
   const request=useLocation();
-  greet=request.state.key;
+  greet=request.state?.key;
 
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [userExists, setUserExists] = useState(false);
   const [selectedFile, setselectedFile] = useState();
+  const [empdocid, setEmpdocid] = useState();
+  
+
+  // const [resumedata, setResumedata] = useState({
+  //   email: "",
+  //   name: "",
+  //   number:"",
+  //   skills:[],
+  //   links:{
+  //     codechef:[],
+  //     github:[],
+  //     leetcode:[],
+  //     linkden:[],
+  //   }
+  // });
+
+  const [resumeInfo, setResumeInfo] = useState();
 
   const handleSelectFile = (event) =>{
     var resume = event.target.files[0];
@@ -73,70 +90,130 @@ const UserHome = () => {
       [name]: value
     });
   };
-
-  const handleSubmit = async(e) => {
-    e.preventDefault();
-    uploadResume();
-    console.log("employee info", values);
-    // add the data to the firbase database .
-
-    try {
-       
-      const docRef = await addDoc(collection(db, "user"), {
-        userId:auth.currentUser?.uid,
-        name: values.name,
-        descp: values.description,
-      })
-      console.log("Document written with ID: ", docRef.id);
-
-      setFormSubmitted(true);
-
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  };
-
   // var fileInput = document.getElementById('customFile');
-
-  const uploadResume = () => {
-    console.log("inside upload fun")
+  
+  
+  const uploadResume =async (event) => {
+    event.preventDefault()
+    console.log("inside upload fun");
     const file = selectedFile;
+  
+    // Generate a unique file name (e.g., based on the user's ID or any unique identifier)
+    const newFileName = auth?.currentUser?.uid; // Replace this with your own logic
+  
+    // Create a storage reference with the new file name
+    const storageRef = ref(storage, `resumes/${newFileName}.pdf`);
 
-  // Generate a unique file name (e.g., based on user's ID or any unique identifier)
-  const newFileName = auth.currentUser?.uid; // Replace this with your own logic
+    console.log("sending file... ", file)
 
-  // Create a storage reference with the new file name
-  const storageRef = ref(storage, `resumes/${newFileName}.pdf`);
+    var formData = new FormData();
 
-  // Upload the file to Firebase Storage
-  // 'file' comes from the Blob or File API
-uploadBytes(storageRef, file).then((snapshot) => {
-  console.log(`uploaded resume ${auth.currentUser?.uid} to cloud storage`);
-});
+  // Append the selected file to the FormData object
+  formData.append('file', file);
 
-const formData = new FormData();
-    formData.append('file', file);
+  // Make the Axios POST request
+  await axios.post('http://127.0.0.1:5000/upload', formData)
+    .then(async function(response) {
 
-    axios.post('http://127.0.0.1:5000/upload', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
+      try {     
+        const docRef = await addDoc(collection(db, "user"), {
+          userId:auth.currentUser?.uid,
+          name: values.name,
+          descp: values.description,
+          // number:resumedata.number,
+          // skills:resumedata.skills,
+          // email:resumedata.email,
+          // links:{
+          //   codechef:resumedata.links.codechef,
+          //   github:resumedata.links.github,
+          //   linkden:resumedata.links.linkden,
+          //   leetcode:resumedata.links.leetcode,
+          // }
+          resumeInfo: response.data
+  
+        })
+        console.log("Document written with ID: ", docRef.id,);
+        setEmpdocid( docRef.id);
+        setFormSubmitted(true);
+  
+      } catch (e) {
+        console.error("Error adding document: ", e);
       }
+
+
     })
-      .then(response => {
-        // Handle the response from the server
-        console.log(response);
+    .catch(function(error) {
+      // Handle the error
+      console.error(error);
+    });
+  
+    // Upload the file to Firebase Storage
+    // 'file' comes from the Blob or File API
+    uploadBytes(storageRef, file)
+      .then((snapshot) => {
+        console.log(empdocid)
+        console.log(`Uploaded resume ${auth.currentUser?.uid} to cloud storage`);
+  
       })
-      .catch(error => {
-        // Handle errors
-        console.error(error);
+      .catch((error) => {
+        console.error('Error uploading resume: ', error);
       });
+
+
   };
 
 
+  // const handleSubmit = async(e) => {
+  //   e.preventDefault();
+  //   await uploadResume();
+  //   console.log("employee info", values);
+  //   // console.log("employee info", resumedata );
+
+  //   // add the data to the firbase database .
+
+  //   try {
+
+       
+  //     const docRef = await addDoc(collection(db, "user"), {
+  //       userId:auth.currentUser?.uid,
+  //       name: values.name,
+  //       descp: values.description,
+  //       // number:resumedata.number,
+  //       // skills:resumedata.skills,
+  //       // email:resumedata.email,
+  //       // links:{
+  //       //   codechef:resumedata.links.codechef,
+  //       //   github:resumedata.links.github,
+  //       //   linkden:resumedata.links.linkden,
+  //       //   leetcode:resumedata.links.leetcode,
+  //       // }
+  //       resumeInfo: resumeInfo
+
+  //     })
+  //     console.log("Document written with ID: ", docRef.id,);
+
+  //     setFormSubmitted(true);
+
+  //   } catch (e) {
+  //     console.error("Error adding document: ", e);
+  //   }
+  // };
+  
+  
 
   
 
+console.log("empdocid before return is: ", empdocid)
 
+const handleNavigateLOC = () => {
+  console.log("navigating with empdocid: ", empdocid)
+
+  navigate("/userhome/listofcompanies", 
+    {state:{
+       employeid: empdocid
+    }}
+    )
+}
  
   return (
     <>
@@ -191,7 +268,7 @@ const formData = new FormData();
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia harum asperiores aliquam voluptatem quibusdam vitae eos blanditiis, necessitatibus rem tenetur.
             </p>
-            <Link className="btn btn-dark" to="/userhome/listofcompanies" >View List</Link>
+            <button className="btn btn-dark" onClick={handleNavigateLOC}  >View List</button>
           </div>
         </div>
 
@@ -225,13 +302,13 @@ const formData = new FormData();
             
             <div class="choosefile mb-3 text-center " style={{width:"250px"}} >
             <label class="frmlb" for="skills">Upload Your Resume .</label>
-            <input type="file" onClick={handleSelectFile}  class="form-control choosef btn-outline-dark"  id="customFile" accept=".pdf" />
+            <input type="file" onChange={handleSelectFile}  class="form-control choosef btn-outline-dark"  id="customFile" accept=".pdf" />
         </div>
 
 
 
             
-          <button className="btn btn-dark"  onClick={handleSubmit} >Upload.</button>
+          <button className="btn btn-dark"  onClick={uploadResume} >Upload.</button>
         </form>
       </div>
 

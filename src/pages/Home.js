@@ -15,7 +15,7 @@ const Home = () => {
       <ButtonSec/>
       <Features/>
       <Contact/>
-      {/* <Review/> */}
+      <Review/>
       <Footer/>
 
 
@@ -24,3 +24,7 @@ const Home = () => {
 }
 
 export default Home
+
+
+
+

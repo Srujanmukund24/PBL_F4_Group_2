@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link ,useNavigate} from "react-router-dom";
+import { Link ,useNavigate,useLocation} from "react-router-dom";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import "./style/listofcompanies.css";
@@ -7,6 +7,8 @@ import logo from '../Media/logo.png'
 
 const ListofCompanies = () => {
   const [companies, setCompanies] = useState([]);
+  const emplid=useLocation();
+  console.log("state: ",emplid)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,11 +20,6 @@ const ListofCompanies = () => {
   }, []);
   
   const navigate = useNavigate();
-
- 
-  
-
-
 
   return (
     <div className="bag">
@@ -44,7 +41,7 @@ const ListofCompanies = () => {
         </nav>
 
       <h1 class=" text-center  wow fadeInUp" data-wow-delay="0.1s">
-        Job Listing
+        Job Listing     
       </h1>
       <div class="container-xxl py-5">
         <div class="container">
@@ -103,11 +100,9 @@ const ListofCompanies = () => {
     </a>
     <button class="btn btn-dark" onClick={()=>navigate("/userhome/listofcompanies/apply", 
     {state:{
-        companyName:company.name,
-        companydescp:company.descp,
-        companyskills:company.skillsReq.join(","),
-        companyvacancy:company.vacancy,
-        companypost:company.posts,
+        companyId:company.userid,
+        employeId:emplid.state.employeid
+
     }}
     )} >
       Apply Now
