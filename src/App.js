@@ -13,6 +13,8 @@ import {useEffect, useState }from 'react';
 import ListofCompanies from './components/ListofCompanies';
 import AfterApply from './pages/AfterApply';
 import EmployeelList from './pages/EmployeelList';
+import EmployeeListApproved from './pages/EmployeeListApproved';
+
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
         <Route exact path="/userhome" element={<UserHome />}/>
         <Route exact path="/companyhome" element={<CompanyHome  />}/> 
         <Route exact path="/companyhome/listofemployees" element={< EmployeelList />}/> 
+        <Route exact path="/companyhome/listofemployees-approved" element={< EmployeeListApproved />}/> 
         <Route exact path="/about" element={<About />}/>
         <Route  exact path="/userhome/listofcompanies" element={<ListofCompanies/>}/>
         <Route  exact path="/userhome/listofcompanies/apply" element={<AfterApply/>}/>

@@ -156,12 +156,19 @@ const CompanyHome = () => {
           
         <h1 className=""> What's there. </h1>
         <div class="row container text-center d-flex justify-content-center">
-          <div class="course-col" style={{height:"60vh"}}>
+          <div class="course-col mr-3" style={{height:"60vh"}}>
             <h3> Job APlii .</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia harum asperiores aliquam voluptatem quibusdam vitae eos blanditiis, necessitatibus rem tenetur.
             </p>
             <Link className="btn btn-dark" to="/companyhome/listofemployees" >View List</Link>
+          </div>
+          <div class="course-col ml-3 " style={{height:"60vh"}}>
+            <h3> Approved Employess</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia harum asperiores aliquam voluptatem quibusdam vitae eos blanditiis, necessitatibus rem tenetur.
+            </p>
+            <Link className="btn btn-dark" to="/companyhome/listofemployees-approved" >View List</Link>
           </div>
         </div>
 

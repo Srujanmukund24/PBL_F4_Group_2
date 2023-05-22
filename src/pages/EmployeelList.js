@@ -6,7 +6,7 @@ import { Link ,useNavigate} from "react-router-dom";
 import { db ,auth,storage} from "../firebase";
 import { getStorage, ref,getDownloadURL } from 'firebase/storage';
 // import "@firebase/firestore";
-import { collection, query, where, getDocs, doc, getDoc, deleteDoc, updateDoc, arrayRemove } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, getDoc, deleteDoc, updateDoc, arrayRemove ,arrayUnion} from "firebase/firestore";
 import "../components/style/listofcompanies.css";
 import logo from '../Media/logo.png'
 import "./style/employeelist.css"
@@ -22,6 +22,8 @@ const EmployeelList = () => {
     const [employeeData, setEmployeeData] = useState([]);
 
     const [employeeDeleted, setEmployeeDeleted] = useState(false);
+    const [employeeApproved, setEmployeeApproved] = useState(false);
+    const [selectedEmployeeEmail, setSelectedEmployeeEmail] = useState('');
 
     useEffect(() => {
       const checkUserIdExists = async () => {
@@ -86,6 +88,26 @@ const EmployeelList = () => {
       }, [employees]);
     
       console.log('list of employees applied:', employeeData);
+
+
+
+      const handleApprove = async (employeeId,employeeEmail) => {
+        try {
+          // Add the employee to the "approvedEmployees" array of the company
+          const companyRef = doc(db, 'company', companyId);
+          await updateDoc(companyRef, {
+            approvedEmployees: arrayUnion(employeeId)
+          });
+
+          setSelectedEmployeeEmail(employeeEmail);
+          window.location.href = `mailto:${employeeEmail}?subject=Congratulations! &body=You are Selected for interview Round ..`;
+
+          console.log("approved employee", employeeId);
+          handleDeleteEmployee(employeeId)
+        } catch (error) {
+          console.error('Error approving employee:', error);
+        }
+      };
 
       const handleDeleteEmployee = async (employeeId) => {
         try {
@@ -189,14 +211,15 @@ const EmployeelList = () => {
                   <button className="btn btn-dark" onClick={()=>openPDF(index)}>View</button>
                 </td>
                 <td>
-                  <button
-        className={`accept mx-1 ${employeeDeleted ? 'disabled' : ''}`}
-        disabled={employeeDeleted}
-      >
-        <ion-icon name="checkmark-done-outline" size="large"></ion-icon>
-      </button>
+                <button
+            className="approve mx-1 " 
+            onClick={() => handleApprove(employees[index],employeeData[index].resumeInfo.email)}
+            disabled={employeeDeleted}
+          >
+            <ion-icon name="checkmark-done-outline" size="large"></ion-icon>
+          </button>
       <button
-        className={`reject mx-1 ${employeeDeleted ? 'disabled' : ''}`}
+        className="reject mx-1"
         onClick={() => handleDeleteEmployee(employees[index])}
         disabled={employeeDeleted}
       >

@@ -101,7 +101,7 @@ const ListofCompanies = () => {
     <button class="btn btn-dark" onClick={()=>navigate("/userhome/listofcompanies/apply", 
     {state:{
         companyId:company.userid,
-        employeId:emplid.state.employeid
+        employeId:emplid?.state?.employeid
 
     }}
     )} >

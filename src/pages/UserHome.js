@@ -20,6 +20,7 @@ const UserHome = () => {
   const [userExists, setUserExists] = useState(false);
   const [selectedFile, setselectedFile] = useState();
   const [empdocid, setEmpdocid] = useState();
+  const [empdocid2, setEmpdocid2] = useState();
   
 
   // const [resumedata, setResumedata] = useState({
@@ -58,8 +59,14 @@ const UserHome = () => {
        // Check if any documents matching the query exist
        if (querySnapshot.size > 0) {
          // The userId exists in the collection
-         setUserExists(true);
-         console.log('UserId exists');
+         querySnapshot.forEach((doc) => {
+          // Get the document ID
+          const docId = doc.id;
+          setEmpdocid2(docId);
+          setUserExists(true);
+          console.log('UserId exists');
+        });
+
        } else {
          // The userId does not exist in the collection
          console.log('UserId does not exist');
@@ -206,13 +213,24 @@ const UserHome = () => {
 console.log("empdocid before return is: ", empdocid)
 
 const handleNavigateLOC = () => {
-  console.log("navigating with empdocid: ", empdocid)
 
+  console.log("navigating with empdocid: ", empdocid)
+  console.log("navigating with empdocid: ", empdocid2)
+  if(empdocid !== undefined){
   navigate("/userhome/listofcompanies", 
     {state:{
        employeid: empdocid
     }}
     )
+  }
+  else{
+    navigate("/userhome/listofcompanies", 
+    {state:{
+       employeid: empdocid2
+    }}
+    )
+
+  }
 }
  
   return (

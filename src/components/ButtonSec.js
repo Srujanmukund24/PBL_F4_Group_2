@@ -7,13 +7,12 @@ const ButtonSec = () => {
   return (
     <>
        <section>
-      <div class="text-box">
-        <h1 class="text-white">Get Your Job DONE!</h1>
-        <p>lorejnjw kjewnvgjw fwufh uwfwuhfuf uewhf uwhfuweh f wrgw
-          fhweufhwu <br></br>fhwughfuwrhgwrgwhgwfej uw ehfwhgfwr g
+      <div class="text-box my-4">
+        <h1 class="text-white ">Get Your Job DONE!</h1>
+        <p>Get the right person for the right job. <br></br>Connect with 20000+ employers.Apply to millions of job opportunities across top comapaines,industries and locations around the globe.
         </p>
-        <Link to="/userlogin" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search a Job.</Link>
-        <Link to="/companylogin" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Hire Someone.</Link>
+        <Link to="/userlogin" class="btn btn-success py-md-3 px-md-5 me-3 animated slideInLeft">Search a Job.</Link>
+        <Link to="/companylogin" class="btn btn-primary py-md-3 px-md-5 animated slideInRight">Hire Someone.</Link>
         <div className="flexCenter stats py-5">
             <div className="flexColCenter stat"> 
             <span>
