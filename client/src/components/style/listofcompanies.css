@@ -1,0 +1,10 @@
+.bag{
+    background: rgb(2,0,36);
+    background:linear-gradient(309deg, rgb(0, 16, 36) 0%, rgb(6, 110, 136) 35%, rgb(0, 16, 36) 100%);
+    height: auto;
+   
+}
+#tab-1{
+    background-color: #030c28b0;
+    color: white;
+}
